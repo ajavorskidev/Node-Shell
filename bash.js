@@ -9,16 +9,16 @@ process.stdin.on('data', (data) => {
     let args = cmd.split(' ');
     switch(args[0]) {
         case 'pwd':
-            pwd(args[0])
+            pwd(args[0], done)
             break;
         case 'ls':
-            ls(args[0])
+            ls(args[0], done)
             break;
         case 'cat':
-            cat(args);
+            cat(args, done);
             break;
         case 'curl':
-            curl(args)
+            curl(args, done)
             break;
         default:
             process.stdout.write('\nERROR: NO COMMAND FOUND');
@@ -27,7 +27,12 @@ process.stdin.on('data', (data) => {
     process.stdout.write('\nprompt > ');
 })
 
-module.exports = function(output){
+// module.exports = function(output){
+//     process.stdout.write(output)
+//     process.stdout.write('\nprompt > ')
+// }
+
+const done = (output) => {
     process.stdout.write(output)
     process.stdout.write('\nprompt > ')
 }

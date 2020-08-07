@@ -1,7 +1,6 @@
 const fs = require('fs');
-const done = require('./bash')
 
-module.exports = function (args) {
+module.exports = function (args, done) {
         fs.readFile(args[1],(err, data) => {
             if (err) throw err;
             done(data)});

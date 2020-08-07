@@ -1,6 +1,6 @@
 
-module.exports = function (cmd) {
+module.exports = function (cmd, done) {
     if (cmd === 'pwd') {
-        process.stdout.write(process.cwd());
+        done(process.cwd());
     }
 }
