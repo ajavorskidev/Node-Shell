@@ -3,6 +3,7 @@ const ls = require('./ls')
 const cat = require('./cat')
 const curl = require('./curl');
 const date = require('./date');
+const echo = require('./echo');
 process.stdout.write('prompt >');
 
 process.stdin.on('data', (data) => {
@@ -24,11 +25,14 @@ process.stdin.on('data', (data) => {
         case 'date':
             date(done)
             break;
+        case 'echo':
+            echo(args, done)
+            break;
         default:
             process.stdout.write('\nERROR: NO COMMAND FOUND');
 
     }
-    process.stdout.write('\nprompt > ');
+    //process.stdout.write('\nprompt > ');
 })
 
 // module.exports = function(output){
